@@ -2,9 +2,14 @@ import { ThunkAction } from "redux-thunk";
 import { navigationAction } from "../action";
 import { RootState } from "./index";
 
+export interface NavigationRouterQuery {
+  currentPage?: string;
+  currentCourse?: string;
+}
+
 export interface NavigationLink {
   label: string;
-  url: string;
+  path: string;
 }
 
 export interface NavigationMenu {
@@ -14,8 +19,7 @@ export interface NavigationMenu {
 
 export interface NavigationDropdown {
   label: string;
-  url: string;
-  page_name: string;
+  path: string;
   menu: NavigationMenu;
 }
 
@@ -28,6 +32,7 @@ export interface NavigationBarState {
   error: string | null;
   navigationBar: NavigationBarBody | null;
   activeNav: string | null;
+  activeMenu: string | null;
 }
 
 export interface NavigationBarAction {
@@ -35,7 +40,8 @@ export interface NavigationBarAction {
     | typeof navigationAction.GET_NAVIGATION_BAR
     | typeof navigationAction.GET_NAVIGATION_REQUEST
     | typeof navigationAction.GET_NAVIGATION_FAILURE
-    | typeof navigationAction.SET_ACTIVE_NAV;
+    | typeof navigationAction.SET_ACTIVE_NAV
+    | typeof navigationAction.SET_ACTIVE_MENU;
   payload?: NavigationBarBody | string;
 }
 

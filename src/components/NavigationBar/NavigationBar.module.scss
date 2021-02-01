@@ -19,6 +19,9 @@
       &:hover {
         color: cyan !important;
       }
+      &.active {
+        color: cyan !important;
+      }
     }
   }
 }

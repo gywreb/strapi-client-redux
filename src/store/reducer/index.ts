@@ -1,16 +1,16 @@
 import { combineReducers } from "redux";
+import coursePage from "./coursePage.reducer";
 import login from "./login.reducer";
 import navigation from "./navigation.reducer";
-import page from "./page.reducer";
+import overviewPage from "./overviewPage.reducer";
 import register from "./register.reducer";
-import restaurant from "./restaurant.reducer";
 
 const reducer = combineReducers({
   register,
   login,
-  restaurant,
   navigation,
-  page,
+  coursePage,
+  overviewPage,
 });
 
 export default reducer;

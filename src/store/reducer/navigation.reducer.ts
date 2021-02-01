@@ -10,6 +10,7 @@ const initialState: NavigationBarState = {
   error: null,
   navigationBar: null,
   activeNav: null,
+  activeMenu: null,
 };
 
 export default function navigationBarReducer(
@@ -40,7 +41,11 @@ export default function navigationBarReducer(
       return {
         ...state,
         activeNav: action.payload as string,
+        activeMenu: null,
       };
+    }
+    case navigationAction.SET_ACTIVE_MENU: {
+      return { ...state, activeMenu: action.payload as string };
     }
     default: {
       return { ...state };

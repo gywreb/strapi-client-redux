@@ -1,7 +1,11 @@
-import { pageAction } from "../action";
-import { IPage, PageAction, PageState } from "./../types/page.type";
+import { overviewPageAction } from "../action";
+import {
+  OverviewPage,
+  OverviewPageAction,
+  OverviewPageState,
+} from "../types/overviewPage.type";
 
-const initialState: PageState = {
+const initialState: OverviewPageState = {
   loading: false,
   error: null,
   page: null,
@@ -9,21 +13,21 @@ const initialState: PageState = {
 
 export default function pageReducer(
   state = initialState,
-  action: PageAction
-): PageState {
+  action: OverviewPageAction
+): OverviewPageState {
   switch (action.type) {
-    case pageAction.GET_PAGE_REQUEST: {
+    case overviewPageAction.GET_OVERVIEWPAGEPAGE_REQUEST: {
       return { ...state, loading: true };
     }
-    case pageAction.GET_PAGE: {
+    case overviewPageAction.GET_OVERVIEWPAGE: {
       return {
         ...state,
         loading: false,
         error: null,
-        page: action.payload as IPage,
+        page: action.payload as OverviewPage,
       };
     }
-    case pageAction.GET_PAGE_FAILURE: {
+    case overviewPageAction.GET_OVERVIEWPAGEPAGE_FAILURE: {
       return {
         ...state,
         loading: false,

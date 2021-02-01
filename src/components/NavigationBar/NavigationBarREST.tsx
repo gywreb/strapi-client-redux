@@ -5,21 +5,28 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { navigationAction } from "../../store/action";
-import { NavigationBarState, RootState } from "../../store/types";
+import {
+  NavigationBarState,
+  NavigationRouterQuery,
+  RootState,
+} from "../../store/types";
 import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
 import styles from "./NavigationBar.module.scss";
 
 const NavigationBarREST = () => {
   const dispatch = useDispatch();
-  const { loading, error, navigationBar, activeNav } = useSelector<
+  const { loading, error, navigationBar, activeNav, activeMenu } = useSelector<
     RootState,
     NavigationBarState
   >((state) => state.navigation);
+
   const router = useRouter();
 
   useEffect(() => {
-    dispatch(navigationAction.getNavigationBar(router.pathname));
-  }, []);
+    dispatch(
+      navigationAction.getNavigationBar(router.query as NavigationRouterQuery)
+    );
+  }, [router.query, dispatch]);
 
   //   console.log(navigationBar);
   if (error) return <h1>Error getting nav bar</h1>;
@@ -36,15 +43,29 @@ const NavigationBarREST = () => {
           <div className="centerize pt-1 pb-1">
             {navigationBar.body.map((item) => {
               return item.menu ? (
-                <Link href={item.page_name ? `/${item.page_name}` : "/"}>
+                <Link href={item.path ? `/${item.path}` : "/"}>
                   <Dropdown
                     overlay={
                       <Menu>
                         {item.menu.links.map((link) => (
                           <Menu.Item key={link.label}>
-                            <a className={styles.nav_item__menu}>
-                              {link.label}
-                            </a>
+                            <Link
+                              href={
+                                link.path ? `/${item.path}/${link.path}` : "/"
+                              }
+                            >
+                              <span
+                                className={
+                                  !activeMenu
+                                    ? styles.nav_item__menu
+                                    : link.path === activeMenu
+                                    ? clsx(styles.nav_item__menu, styles.active)
+                                    : styles.nav_item__menu
+                                }
+                              >
+                                {link.label}
+                              </span>
+                            </Link>
                           </Menu.Item>
                         ))}
                       </Menu>

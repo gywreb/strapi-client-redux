@@ -53,6 +53,13 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  &.overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+  }
 }
 .p-absolute {
   position: absolute;
@@ -166,8 +173,8 @@ body {
     position: absolute;
     z-index: 1;
     padding: 0px 30px;
-    left: 15%;
-    top: 55%;
+    width: 100%;
+    top: 50%;
     transform: translateY(-50%);
     &__text,
     &__title {
@@ -182,6 +189,41 @@ body {
       font-weight: 100 !important;
       letter-spacing: 1.5px !important;
       margin-bottom: 10px !important;
+    }
+  }
+}
+
+.courseInfo {
+  padding: 30px 0px;
+  &_textblock {
+    font-size: 20px;
+  }
+  &_thumbnail {
+    cursor: pointer;
+    padding-top: 20px;
+    margin: 0px -7.5px;
+    &__body {
+      padding: 15px;
+      &-title {
+        font-weight: 400 !important;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.relatedContent {
+  padding: 30px 0px;
+  &_thumbnail {
+    cursor: pointer;
+    padding-top: 20px;
+    margin: 0px -7.5px;
+    &__body {
+      padding: 15px;
+      &-title {
+        font-weight: 400 !important;
+        text-align: center;
+      }
     }
   }
 }
@@ -203,8 +245,23 @@ body {
     &__body {
       padding: 15px;
       &-title {
+        font-weight: 400 !important;
         text-align: center;
       }
+    }
+  }
+}
+
+.learnList {
+  padding-top: 10px;
+  &_item {
+    padding: 10px 0px;
+    &__text {
+      font-size: 20px;
+    }
+    &__icon {
+      font-size: 32px;
+      padding-right: 10px;
     }
   }
 }

@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.3.0",
+    "@ant-design/icons": "^4.4.0",
     "@apollo/client": "^3.3.7",
     "@apollo/react-hooks": "^4.0.0",
     "@apollo/react-ssr": "^4.0.0",

@@ -8,7 +8,7 @@ import { registerAction } from "../../store/action";
 import { RegisterValidationError, RootState } from "../../store/types";
 
 interface FormValues {
-  name: string;
+  username: string;
   email: string;
   password: string;
   gender: string;
