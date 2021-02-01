@@ -12,20 +12,14 @@ export const SET_ACTIVE_MENU = "[NAVIGATION] SET ACTIVE MENU";
 
 const baseURL = process.env.NEXT_PUBLIC_API_BASEURL;
 
-export const getNavigationBar = (
+export const getActive = (
   path: NavigationRouterQuery
-): NavigationBarThunk => async (dispatch) => {
-  dispatch({ type: GET_NAVIGATION_REQUEST });
-  try {
-    const { data }: AxiosResponse<NavigationBarBody> = await axios({
-      baseURL,
-      url: "/navigation-bar",
-      method: "GET",
-    });
-    dispatch({ type: GET_NAVIGATION_BAR, payload: data });
+): NavigationBarThunk => async (dispatch, getState) => {
+  const { navigationBar } = getState().navigation;
+  if (navigationBar !== null) {
     if (path) {
       {
-        const currentActiveNav = data.body.find((item) => {
+        const currentActiveNav = navigationBar.body.find((item) => {
           if (item.path) return path.currentPage?.includes(item.path);
         });
         if (currentActiveNav) {
@@ -44,6 +38,17 @@ export const getNavigationBar = (
         }
       }
     }
+  }
+};
+export const getNavigationBar = (): NavigationBarThunk => async (dispatch) => {
+  dispatch({ type: GET_NAVIGATION_REQUEST });
+  try {
+    const { data }: AxiosResponse<NavigationBarBody> = await axios({
+      baseURL,
+      url: "/navigation-bar",
+      method: "GET",
+    });
+    dispatch({ type: GET_NAVIGATION_BAR, payload: data });
   } catch (error) {
     dispatch({ type: GET_NAVIGATION_FAILURE, payload: "Error" });
   }

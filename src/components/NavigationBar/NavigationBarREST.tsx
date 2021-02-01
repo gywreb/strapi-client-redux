@@ -23,10 +23,12 @@ const NavigationBarREST = () => {
   const router = useRouter();
 
   useEffect(() => {
-    dispatch(
-      navigationAction.getNavigationBar(router.query as NavigationRouterQuery)
-    );
-  }, [router.query, dispatch]);
+    dispatch(navigationAction.getNavigationBar());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(navigationAction.getActive(router.query as NavigationRouterQuery));
+  }, [router]);
 
   //   console.log(navigationBar);
   if (error) return <h1>Error getting nav bar</h1>;
