@@ -1,3 +1,4 @@
+export * as classPageAction from "./classPage.action";
 export * as coursePageAction from "./coursePage.action";
 export * as loginAction from "./login.action";
 export * as navigationAction from "./navigation.action";

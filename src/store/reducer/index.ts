@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import classPage from "./classPage.reducer";
 import coursePage from "./coursePage.reducer";
 import login from "./login.reducer";
 import navigation from "./navigation.reducer";
@@ -11,6 +12,7 @@ const reducer = combineReducers({
   navigation,
   coursePage,
   overviewPage,
+  classPage,
 });
 
 export default reducer;

@@ -5,6 +5,7 @@ import { RootState } from "./index";
 export interface NavigationRouterQuery {
   currentPage?: string;
   currentCourse?: string;
+  currentClass?: string;
 }
 
 export interface NavigationLink {

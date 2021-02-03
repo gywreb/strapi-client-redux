@@ -5,10 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LoadingIndicator from "../../src/components/LoadingIndicator/LoadingIndicator";
-import Page404 from "../../src/components/Page404/Page404";
-import { coursePageAction } from "../../src/store/action";
-import { CoursePageState, RootState } from "../../src/store/types";
+import Animator from "../../../src/components/Animator/Animator";
+import LoadingIndicator from "../../../src/components/LoadingIndicator/LoadingIndicator";
+import Page404 from "../../../src/components/Page404/Page404";
+import { coursePageAction } from "../../../src/store/action";
+import { CoursePageState, RootState } from "../../../src/store/types";
 
 const CoursePage = () => {
   const dispatch = useDispatch();
@@ -23,11 +24,10 @@ const CoursePage = () => {
       dispatch(coursePageAction.getPage(router.query.currentCourse as string));
   }, [router, dispatch]);
 
-  if (loading) return <LoadingIndicator />;
   if (error) return <Page404 />;
-  if (page) {
+  if (!loading && page) {
     return (
-      <>
+      <Animator motion="fadeIn" duration={0.6}>
         <Head>
           <title>{page.title}</title>
         </Head>
@@ -61,7 +61,13 @@ const CoursePage = () => {
               <Row className="courseInfo_thumbnail">
                 {page.courseInfo.course.thumbnails.length
                   ? page.courseInfo.course.thumbnails.map((thumbnail) => (
-                      <Link href="/">
+                      <Link
+                        href={
+                          thumbnail.class
+                            ? `/${router.query.currentPage}/${page.courseInfo.course.path}/${thumbnail.class.path}`
+                            : "/"
+                        }
+                      >
                         <Col span={4} className="courseInfo_thumbnail__body">
                           <img
                             src={`${process.env.NEXT_PUBLIC_API_BASEURL}${thumbnail.image.url}`}
@@ -121,9 +127,9 @@ const CoursePage = () => {
             </Row>
           </div>
         </div>
-      </>
+      </Animator>
     );
-  } else return <h1>No page found!</h1>;
+  } else return <LoadingIndicator />;
 };
 
 export default CoursePage;

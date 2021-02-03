@@ -27,8 +27,11 @@ const NavigationBarREST = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(navigationAction.getActive(router.query as NavigationRouterQuery));
-  }, [router]);
+    if (router.query && navigationBar)
+      dispatch(
+        navigationAction.getActive(router.query as NavigationRouterQuery)
+      );
+  }, [router, navigationBar]);
 
   //   console.log(navigationBar);
   if (error) return <h1>Error getting nav bar</h1>;
@@ -45,7 +48,7 @@ const NavigationBarREST = () => {
           <div className="centerize pt-1 pb-1">
             {navigationBar.body.map((item) => {
               return item.menu ? (
-                <Link href={item.path ? `/${item.path}` : "/"}>
+                <Link href={item.path ? `/${item.path}` : "/"} key={item.path}>
                   <Dropdown
                     overlay={
                       <Menu>

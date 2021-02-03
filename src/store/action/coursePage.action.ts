@@ -20,8 +20,7 @@ export const getPage = (path: string): CoursePageThunk => async (dispatch) => {
       url: `/course-pages?path=${path}`,
       method: "GET",
     });
-    console.log(path);
-    console.log(data);
+
     const page: CoursePage = {
       title: data[0].title as string,
       path: data[0].path as string,

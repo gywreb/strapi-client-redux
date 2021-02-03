@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Animator from "../../src/components/Animator/Animator";
 import LoadingIndicator from "../../src/components/LoadingIndicator/LoadingIndicator";
 import Page404 from "../../src/components/Page404/Page404";
 import { overviewPageAction } from "../../src/store/action";
@@ -24,11 +25,10 @@ const OverviewPage = () => {
       dispatch(overviewPageAction.getPage(router.query.currentPage as string));
   }, [router, dispatch]);
 
-  if (loading) return <LoadingIndicator />;
   if (error) return <Page404 />;
-  if (page) {
+  if (!loading && page) {
     return (
-      <>
+      <Animator motion="fadeIn" duration={0.6}>
         <Head>
           <title>{page.title}</title>
         </Head>
@@ -75,7 +75,13 @@ const OverviewPage = () => {
                   <Row className="section_thumbnail">
                     {section.course.thumbnails.length
                       ? section.course.thumbnails.map((thumbnail) => (
-                          <Link href="/">
+                          <Link
+                            href={
+                              thumbnail.class
+                                ? `/${page.path}/${section.course.path}/${thumbnail.class.path}`
+                                : "/"
+                            }
+                          >
                             <Col span={4} className="section_thumbnail__body">
                               <img
                                 src={`${process.env.NEXT_PUBLIC_API_BASEURL}${thumbnail.image.url}`}
@@ -114,9 +120,9 @@ const OverviewPage = () => {
               ))
             : null}
         </div>
-      </>
+      </Animator>
     );
-  } else return <h1>No page found!</h1>;
+  } else return <LoadingIndicator />;
 };
 
 export default OverviewPage;
