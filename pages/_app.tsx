@@ -12,6 +12,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { Provider } from "react-redux";
+import AppFooter from "../src/components/AppFooter/AppFooter";
 import AppHeader from "../src/components/AppHeader/AppHeader";
 import AuthProvider from "../src/components/AuthProvider/AuthProvider";
 import store from "../src/store";
@@ -65,6 +66,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                 <Layout.Content>
                   <Component {...pageProps} tokenInCookie={tokenInCookie} />
                 </Layout.Content>
+                <AppFooter />
               </Layout>
             </AuthProvider>
           </AnimatePresence>

@@ -7,6 +7,7 @@ const HomePage = () => {
       <Head>
         <title>GWShop | Home</title>
       </Head>
+      <div style={{ height: "500px" }}></div>
     </Animator>
   );
 };

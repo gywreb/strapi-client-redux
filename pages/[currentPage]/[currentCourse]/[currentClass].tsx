@@ -93,6 +93,7 @@ const ClassPage = () => {
             <PromoOverlay />
           </Col>
         </Row>
+
         <div className="container">
           <Row className="classSection">
             <Col span={18} className="classSection_main">
