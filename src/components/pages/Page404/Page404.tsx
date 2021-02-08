@@ -10,7 +10,7 @@ const Page404 = () => {
       </Head>
       <div
         className="centerize overlay"
-        style={{ background: "#fff", zIndex: 999 }}
+        style={{ background: "#fff", zIndex: 903, width: "100vw" }}
       >
         <Typography.Title>404 | Page not found!</Typography.Title>
       </div>

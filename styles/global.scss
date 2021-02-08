@@ -151,12 +151,14 @@ body {
 
 .app {
   &-header {
+    position: relative;
+    z-index: 999;
     &__body {
       background-color: #fff;
     }
     &.fixed {
       position: fixed;
-      z-index: 100;
+      z-index: 999;
       width: 100%;
       top: 0;
       left: 0;
