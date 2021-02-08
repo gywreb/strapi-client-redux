@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Animator from "../src/components/Animator/Animator";
+import Animator from "../src/components/utils/Animator/Animator";
 
 const HomePage = () => {
   return (

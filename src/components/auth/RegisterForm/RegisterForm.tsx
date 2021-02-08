@@ -4,8 +4,8 @@ import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { registerAction } from "../../store/action";
-import { RegisterValidationError, RootState } from "../../store/types";
+import { registerAction } from "../../../store/action";
+import { RegisterValidationError, RootState } from "../../../store/types";
 
 interface FormValues {
   username: string;

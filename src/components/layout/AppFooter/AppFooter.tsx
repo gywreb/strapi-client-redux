@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { footerAction } from "../../store/action";
-import { RootState } from "../../store/types";
-import { FooterState } from "../../store/types/footer.type";
-import Animator from "../Animator/Animator";
-import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
+import { footerAction } from "../../../store/action";
+import { RootState } from "../../../store/types";
+import { FooterState } from "../../../store/types/footer.type";
+import LoadingIndicator from "../../layout/LoadingIndicator/LoadingIndicator";
+import Animator from "../../utils/Animator/Animator";
 import styles from "./AppFooter.module.scss";
 
 const scriptUrl = process.env.NEXT_PUBLIC_ICONFONT_URL;

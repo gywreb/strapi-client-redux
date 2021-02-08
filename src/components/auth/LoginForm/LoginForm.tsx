@@ -4,8 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAction, registerAction } from "../../store/action";
-import { ILoginUser, LoginValidationError, RootState } from "../../store/types";
+import { loginAction, registerAction } from "../../../store/action";
+import {
+  ILoginUser,
+  LoginValidationError,
+  RootState,
+} from "../../../store/types";
 
 const LoginForm = () => {
   const dispatch = useDispatch();

@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Particles from "react-tsparticles";
-import Animator from "../../src/components/Animator/Animator";
-import LoadingIndicator from "../../src/components/LoadingIndicator/LoadingIndicator";
-import RegisterSuccess from "../../src/components/RegisterSuccess/RegisterSuccess";
+import RegisterSuccess from "../../src/components/auth/RegisterSuccess/RegisterSuccess";
+import LoadingIndicator from "../../src/components/layout/LoadingIndicator/LoadingIndicator";
+import Animator from "../../src/components/utils/Animator/Animator";
 import { RootState } from "../../src/store/types";
 import options from "../../tsparticle.config.json";
 

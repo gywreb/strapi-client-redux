@@ -3,9 +3,9 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAction } from "../../store/action";
-import { IUserInfo, RootState } from "../../store/types";
-import NavigationBarREST from "../NavigationBar/NavigationBarREST";
+import { loginAction } from "../../../store/action";
+import { IUserInfo, RootState } from "../../../store/types";
+import NavigationBarREST from "../../layout/NavigationBar/NavigationBarREST";
 
 interface LayoutHeaderProps {
   fixed?: boolean;

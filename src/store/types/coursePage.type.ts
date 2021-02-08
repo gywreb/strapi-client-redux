@@ -27,14 +27,16 @@ export interface CoursePageState {
   loading: boolean;
   error: null | string;
   page: CoursePage | null;
+  relatedContent: RelatedContent[] | null;
 }
 
 export interface CoursePageAction {
   type:
     | typeof coursePageAction.GET_COURSEPAGE
     | typeof coursePageAction.GET_COURSEPAGE_REQUEST
-    | typeof coursePageAction.GET_COURSEPAGE_FAILURE;
-  payload?: CoursePage | string | null;
+    | typeof coursePageAction.GET_COURSEPAGE_FAILURE
+    | typeof coursePageAction.SET_COURSEPAGE_RELATED_CONTENT;
+  payload?: CoursePage | RelatedContent[] | string | null;
 }
 
 export type CoursePageThunk = ThunkAction<

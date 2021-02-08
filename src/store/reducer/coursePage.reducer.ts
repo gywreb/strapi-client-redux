@@ -3,12 +3,13 @@ import {
   CoursePage,
   CoursePageAction,
   CoursePageState,
+  RelatedContent,
 } from "./../types/coursePage.type";
-
 const initialState: CoursePageState = {
   loading: false,
   error: null,
   page: null,
+  relatedContent: null,
 };
 
 export default function pageReducer(
@@ -33,6 +34,12 @@ export default function pageReducer(
         loading: false,
         error: action.payload as string,
         page: null,
+      };
+    }
+    case coursePageAction.SET_COURSEPAGE_RELATED_CONTENT: {
+      return {
+        ...state,
+        relatedContent: action.payload as RelatedContent[] | null,
       };
     }
     default: {

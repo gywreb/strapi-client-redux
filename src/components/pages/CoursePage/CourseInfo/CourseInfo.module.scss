@@ -1,0 +1,31 @@
+.courseInfo {
+  padding: 30px 0px;
+  &_textblock {
+    font-size: 20px;
+  }
+  &_thumbnail {
+    cursor: pointer;
+    padding-top: 20px;
+    margin: 0px -15px;
+    &__body {
+      padding: 15px;
+      &-title {
+        font-weight: 400 !important;
+        text-align: center;
+      }
+    }
+  }
+  .learnList {
+    padding-top: 10px;
+    &_item {
+      padding: 10px 0px;
+      &__text {
+        font-size: 20px;
+      }
+      &__icon {
+        font-size: 32px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

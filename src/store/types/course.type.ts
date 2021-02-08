@@ -19,4 +19,7 @@ export interface ICourse {
   path: string;
   thumbnails: ClassThumbnail[];
   learnList: LearnList[];
+  relatedPic?: {
+    url: string;
+  };
 }

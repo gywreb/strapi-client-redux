@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Particles from "react-tsparticles";
-import Animator from "../src/components/Animator/Animator";
-import LoginForm from "../src/components/LoginForm/LoginForm";
+import LoginForm from "../src/components/auth/LoginForm/LoginForm";
+import Animator from "../src/components/utils/Animator/Animator";
 import options from "../tsparticle.config.json";
 
 const LoginPage = () => {

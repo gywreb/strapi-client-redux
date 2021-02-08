@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Particles from "react-tsparticles";
-import Animator from "../../src/components/Animator/Animator";
-import RegisterForm from "../../src/components/RegisterForm/RegisterForm";
+import RegisterForm from "../../src/components/auth/RegisterForm/RegisterForm";
+import Animator from "../../src/components/utils/Animator/Animator";
 import options from "../../tsparticle.config.json";
 
 const RegisterPage = () => {

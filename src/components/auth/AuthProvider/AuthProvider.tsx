@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser } from "../../store/action/login.action";
-import { RootState } from "../../store/types";
-import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
+import { getCurrentUser } from "../../../store/action/login.action";
+import { RootState } from "../../../store/types";
+import LoadingIndicator from "../../layout/LoadingIndicator/LoadingIndicator";
 
 const AuthProvider: React.FC = (props) => {
   const dispatch = useDispatch();

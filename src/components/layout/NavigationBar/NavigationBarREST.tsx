@@ -4,13 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { navigationAction } from "../../store/action";
+import { navigationAction } from "../../../store/action";
 import {
   NavigationBarState,
   NavigationRouterQuery,
   RootState,
-} from "../../store/types";
-import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
+} from "../../../store/types";
+import LoadingIndicator from "../../layout/LoadingIndicator/LoadingIndicator";
 import styles from "./NavigationBar.module.scss";
 
 const NavigationBarREST = () => {

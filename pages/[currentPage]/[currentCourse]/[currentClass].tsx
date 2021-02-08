@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Animator from "../../../src/components/Animator/Animator";
-import LoadingIndicator from "../../../src/components/LoadingIndicator/LoadingIndicator";
-import Page404 from "../../../src/components/Page404/Page404";
-import PromoOverlay from "../../../src/components/PromoOverlay/PromoOverlay";
+import LoadingIndicator from "../../../src/components/layout/LoadingIndicator/LoadingIndicator";
+import PromoOverlay from "../../../src/components/layout/PromoOverlay/PromoOverlay";
+import Page404 from "../../../src/components/pages/Page404/Page404";
+import Animator from "../../../src/components/utils/Animator/Animator";
 import { classPageAction } from "../../../src/store/action";
 import { ClassPageState, RootState } from "../../../src/store/types";
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import useScrollPosition from "../../hooks/useScrollPosition";
-import Animator from "../Animator/Animator";
-import ConditionalAnimator from "../ConditionalAnimator/ConditionalAnimator";
+import useScrollPosition from "../../../hooks/useScrollPosition";
+import Animator from "../../utils/Animator/Animator";
+import ConditionalAnimator from "../../utils/ConditionalAnimator/ConditionalAnimator";
 import LayoutHeader from "../LayoutHeader/LayoutHeader";
 
 const AppHeader = () => {

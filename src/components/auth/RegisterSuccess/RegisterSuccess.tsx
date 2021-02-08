@@ -2,7 +2,7 @@ import { Button, Card, Col, Row, Typography } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/types";
+import { RootState } from "../../../store/types";
 
 const RegisterSuccess = () => {
   const dispatch = useDispatch();

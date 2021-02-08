@@ -12,9 +12,9 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { Provider } from "react-redux";
-import AppFooter from "../src/components/AppFooter/AppFooter";
-import AppHeader from "../src/components/AppHeader/AppHeader";
-import AuthProvider from "../src/components/AuthProvider/AuthProvider";
+import AuthProvider from "../src/components/auth/AuthProvider/AuthProvider";
+import AppFooter from "../src/components/layout/AppFooter/AppFooter";
+import AppHeader from "../src/components/layout/AppHeader/AppHeader";
 import store from "../src/store";
 import "../styles/global.scss";
 
